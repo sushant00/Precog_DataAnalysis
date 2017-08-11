@@ -13,11 +13,6 @@ CONSUMER_SECRET = ""
 
 """
 
-ACCESS_TOKEN = input()
-ACCESS_TOKEN_SECRET = input()
-CONSUMER_KEY = input()
-CONSUMER_SECRET = input()
-
 
 twitterAPI = Twython(app_key = CONSUMER_KEY,
 					app_secret = CONSUMER_SECRET,
@@ -41,7 +36,7 @@ tweets.create_index([('id',ASCENDING), ('timestamp_ms',ASCENDING)],unique = True
 set variables for querying Twitter REST API
 """	
 #number of tweets to collect
-count = 100	
+count = 1	
 #keywords of which data is collected
 hashtags = ["pmoindia", "narendra modi","delhicm", "arvind kejriwal","narendramodi","arvindkejriwal"]
 
@@ -52,6 +47,7 @@ for hashtag in hashtags:
 	statuses = response["statuses"]
 	print(len(statuses))
 	for status in statuses:
+		print(status)
 		try:
 			tweets.insert(status)
 		except:
@@ -59,7 +55,7 @@ for hashtag in hashtags:
 
 print("Success")
 print(tweets.find().count(),"tweets collected")
-
+"""
 while tweets.find().count() < 10000:
 	print("check")
 
@@ -74,3 +70,4 @@ while tweets.find().count() < 10000:
 				pass
 	print("Success")
 	print(tweets.find().count(),"tweets collected")
+"""
