@@ -24,20 +24,20 @@ def index(request):
 	return render(request,'tweetAnalyzer/index.html', context)
 
 def tweetLocation(request):
-	"""
-	sample data source
+	
+	#sample data source
 	dataSource = [['Lat','Long','Name'],[37.4232, -122.0853, 'Work'],
 		  [37.4289, -122.1697, 'University'],
 		  [37.6153, -122.3900, 'Airport'],
 		  [37.4422, -122.1731, 'Shopping']]
 
 	"""
-	dataSource = [['Lat','Long','Name']]
+	#dataSource = [['Lat','Long','Name']]
 	for tweet in tweets.find():
 		if tweet["coordinates"] == None:
 			continue
 		tmpData = tweet["coordinates"]["coordinates"].append(tweet["place"]["full_name"])
-		dataSource.append(tmpData)
+		dataSource.append(tmpData)"""
 	return render(request,'tweetAnalyzer/tweetLocation.html', {	'dataSource' : dataSource})
 
 def topHashtags(request):
@@ -173,7 +173,7 @@ def popularity(request):
 		for tweet in tweetYear[year]:
 			if "narendra modi" in tweet["text"] or "narendramodi" in tweet["text"] or "pmo india" in tweet["text"]:
 				countModi +=1
-			if "arvind kejriwal" in tweet["text"] or "arvindkejriwal" in tweet["text"] or "cmo delhi" in tweet["text"] :
+			if "arvind kejriwal" in tweet["text"] or "arvindkejriwal" in tweet["text"] or "cmo delhi" in tweet["text"] or "cmodelhi" in tweet["text"]:
 				countArvind+=1
 		yearVsPerson[year] = (countModi, countArvind)			
 	
