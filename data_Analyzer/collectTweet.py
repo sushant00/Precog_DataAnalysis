@@ -14,7 +14,6 @@ CONSUMER_SECRET = ""
 """
 
 
-
 twitterAPI = Twython(app_key = CONSUMER_KEY,
 					app_secret = CONSUMER_SECRET,
 					oauth_token = ACCESS_TOKEN,
@@ -56,11 +55,13 @@ for hashtag in hashtags:
 print("Success")
 print(tweets.find().count(),"tweets collected")
 
+
+"""
 while tweets.find().count() < 10000:
 	print("check")
 
 	for hashtag in hashtags:
-		response = twitterAPI.search(q = hashtag, count = count, max_id = "891893408327499776" )
+		response = twitterAPI.search(q = hashtag, count = count, max_id = "898893408327499776" )
 		statuses = response["statuses"]
 		print(len(statuses))
 		for status in statuses:		
@@ -70,3 +71,4 @@ while tweets.find().count() < 10000:
 				pass
 	print("Success")
 	print(tweets.find().count(),"tweets collected")
+"""
