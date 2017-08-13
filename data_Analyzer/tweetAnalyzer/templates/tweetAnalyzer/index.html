@@ -1,5 +1,9 @@
-<a href = "/tweetAnalyzer/tweetLocation"><h3>tweetLocation</h3></a>
-<a href = "/tweetAnalyzer/topHashtags"><h3>topHashtags</h3></a>
-<a href = "/tweetAnalyzer/tweetVSretweet"><h3>tweetVSretweet</h3></a>
-<a href = "/tweetAnalyzer/popularity"><h3>popularity</h3></a>
-<a href = "/tweetAnalyzer/tweetTypes"><h3>tweetTypes</h3></a>
+<h1>tweet analyzer:</h1>
+<ul type = "disc">
+<li><a href = "{% url 'tweetAnalyzer:tweetGeo' %}"><h3>tweetGeo</h3></a></li>
+<li><a href = "{% url 'tweetAnalyzer:topHashtags' %}"><h3>topHashtags</h3></a></li>
+<li><a href = "{% url 'tweetAnalyzer:tweetVSretweet' %}"><h3>tweetVSretweet</h3></a></li>
+<li><a href = "{% url 'tweetAnalyzer:popularity' %}"><h3>popularity</h3></a></li>
+<li><a href = "{% url 'tweetAnalyzer:tweetTypes' %}"><h3>tweetTypes</h3></a></li>
+<li><a href = "{% url 'tweetAnalyzer:favVsRtCount' %}"><h3>favorite counts on original tweets</h3></a></li>
+<ul>
