@@ -32,9 +32,13 @@ def favVsRtCount(request):
 	originalTweets = []
 	for tweet in tweets.find():
 		#insert if tweet is not a retweet itself
-		if not( (str(tweet["retweeted"])=="true") or ("RT @" in tweet["text"]) ) :
+		if not( ("retweeted_status" in tweet) or ("RT @" in tweet["text"]) ) :
 			originalTweets.append(tweet)
+	
+	"""
+	# restrict the number of original tweets to simulate
 	originalTweets = originalTweets[0:min(len(originalTweets),1000)]
+	"""
 
 	#count the number of retweets and favorite marks of original tweets
 	countDict = {}					#key = "unique id of tweet", value = (favorite count, retweet count)
@@ -278,7 +282,7 @@ def tweetVSretweet(request):
 	#count the number of retweeted tweets
 	countRT = 0					#initialise number of RTweets as 0
 	for tweet in tweets.find():
-		if (str(tweet["retweeted"])=="true") or ("RT @" in tweet["text"]) :
+		if ("retweeted_status" in tweet) or ("RT @" in tweet["text"]) :
 			countRT+=1
 
 	#number of original tweets
